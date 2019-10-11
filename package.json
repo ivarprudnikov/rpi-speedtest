@@ -2,6 +2,7 @@
   "name": "rpi-speedtest",
   "version": "1.0.0",
   "description": "Speedtest script to be run on Raspberry PI",
+  "bin": "bin/index.js",
   "main": "index.js",
   "scripts": {
     "test": "eslint test && mocha"
@@ -28,5 +29,8 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
     "mocha": "^6.2.1"
+  },
+  "dependencies": {
+    "speedtest-net": "^1.5.1"
   }
 }
