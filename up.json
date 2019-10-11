@@ -6,5 +6,14 @@
     "role": "arn:aws:iam::630017267485:role/lambda_to_S3",
     "memory": 384,
     "runtime": "nodejs10.x"
+  },
+  "hooks": {
+    "build": "npm run build",
+    "postdeploy": "npm i --offline"
+  },
+  "stages": {
+    "production": {
+      "domain": "speed-test.lila.io"
+    }
   }
 }
