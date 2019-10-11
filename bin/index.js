@@ -1,2 +1,2 @@
 #!/usr/bin/env node
-require('../')({raw: true});
+require('../')({ raw: true });
