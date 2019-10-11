@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Speedtest script to be run on Raspberry PI",
   "bin": "bin/index.js",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
     "test": "eslint test && mocha"
   },
