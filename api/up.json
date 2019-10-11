@@ -1,0 +1,10 @@
+{
+  "name": "rpi-network-speed-test",
+  "profile": "apex_up",
+  "regions": ["eu-west-1"],
+  "lambda": {
+    "role": "arn:aws:iam::630017267485:role/lambda_to_S3",
+    "memory": 384,
+    "runtime": "nodejs10.x"
+  }
+}
