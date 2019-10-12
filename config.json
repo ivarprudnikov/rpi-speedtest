@@ -1,0 +1,6 @@
+{
+  "api": {
+    "host": "speed-test.lila.io",
+    "speedPath": "/api/v1/speed"
+  }
+}
