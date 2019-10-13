@@ -32,5 +32,8 @@
     "mocha": "^6.2.1",
     "speedtest-net": "^1.5.1"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "engines": {
+    "node": ">=8"
+  }
 }
