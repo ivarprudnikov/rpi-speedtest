@@ -1,6 +1,40 @@
 const http = require('http');
-const { PORT = 3000, UP_STAGE } = process.env;
+const getRawBody = require('raw-body');
+const { PORT = 3000 } = process.env;
+const config = require('./config');
+const UNPROCESSABLE_ENTITY = 422;
+const NOT_FOUND = 404;
+const OK = 200;
+const ERROR = 400;
 
-http.createServer((req, res) => {
-  res.end('Hello World from ' + UP_STAGE);
-}).listen(PORT);
+function isEndpoint (req) {
+  const { url, method } = req;
+  const reqUrlPath = url.split('?')[0].split('#')[0];
+  return reqUrlPath === config.api.speedPath && method === config.api.method.toUpperCase();
+}
+
+const server = module.exports = http.createServer((req, res) => {
+  if (isEndpoint(req)) {
+    getRawBody(req, { limit: config.api.maxBytes })
+      .then(function (buf) {
+        try {
+          JSON.parse(buf.toString());
+          res.statusCode = OK;
+        } catch (e) {
+          res.statusCode = UNPROCESSABLE_ENTITY;
+        }
+        res.end(buf.length + ' bytes submitted');
+      })
+      .catch(function (err) {
+        res.statusCode = err.statusCode || ERROR;
+        res.end(err.message);
+      });
+  } else {
+    res.statusCode = NOT_FOUND;
+    res.end();
+  }
+});
+
+if (!module.parent) {
+  server.listen(PORT);
+}
