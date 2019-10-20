@@ -4,7 +4,7 @@ const { PORT = 3000 } = process.env;
 const config = require('./config');
 const UNPROCESSABLE_ENTITY = 422;
 const NOT_FOUND = 404;
-const OK = 200;
+const CREATED = 201;
 const ERROR = 400;
 
 function isEndpoint (req) {
@@ -19,11 +19,11 @@ const server = module.exports = http.createServer((req, res) => {
       .then(function (buf) {
         try {
           JSON.parse(buf.toString());
-          res.statusCode = OK;
+          res.statusCode = CREATED;
         } catch (e) {
           res.statusCode = UNPROCESSABLE_ENTITY;
         }
-        res.end(buf.length + ' bytes submitted');
+        res.end();
       })
       .catch(function (err) {
         res.statusCode = err.statusCode || ERROR;
