@@ -35,6 +35,7 @@
     "speedtest-net": "^1.5.1"
   },
   "dependencies": {
+    "aws-sdk": "^2.555.0",
     "raw-body": "^2.4.1"
   },
   "engines": {
