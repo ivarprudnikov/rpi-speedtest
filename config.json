@@ -5,6 +5,10 @@
     "method": "post",
     "maxBytes": 1024,
     "group": "home",
-    "device": "networkspeed"
+    "device": "home-networkspeed"
+  },
+  "dynamo": {
+    "region": "eu-west-1",
+    "table": "sensors"
   }
 }
