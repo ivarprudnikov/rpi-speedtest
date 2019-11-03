@@ -29,4 +29,6 @@ ok 200
 
 ## API deployment
 
+To deploy to production: `$ up production`
+
 Uses `up` to set up AWS Lambda, config lives in `up.json`. Refer to their docs for further usage info in docs [apex.sh/docs/up/](https://apex.sh/docs/up/) or in their repo [github.com/apex/up](https://github.com/apex/up)
