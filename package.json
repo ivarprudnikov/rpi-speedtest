@@ -1,6 +1,6 @@
 {
   "name": "rpi-speedtest",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Speedtest script to be run on Raspberry PI",
   "bin": "bin/index.js",
   "main": "lib/index.js",

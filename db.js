@@ -10,13 +10,15 @@ function escape (val) {
 }
 
 function dynamoParams (device, payload) {
+  const item = {
+    deviceId: escape(device),
+    timestamp: new Date().getTime(),
+    payload: payload
+  };
+
   return {
     TableName: config.dynamo.table,
-    Item: {
-      deviceId: { S: escape(device) },
-      timestamp: { N: new Date().getTime() },
-      payload: { M: payload }
-    }
+    Item: AWS.DynamoDB.Converter.marshall(item)
   };
 }
 
@@ -24,7 +26,7 @@ function insertRow (device, payload) {
   return new Promise((resolve, reject) => {
     ddb.putItem(dynamoParams(device, payload), function (err) {
       if (err) {
-        reject(new Error('Could not store entry in database'));
+        reject(err);
       } else {
         resolve();
       }
