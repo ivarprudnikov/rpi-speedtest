@@ -3,3 +3,4 @@
 !app.js
 !db.js
 !config.json
+!www/**

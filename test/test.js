@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-expressions */
 const sinon = require('sinon');
 const chai = require('chai');
 const chaiHttp = require('chai-http');
@@ -7,9 +8,31 @@ const should = chai.should();
 chai.use(chaiHttp);
 
 describe('Server', () => {
-  it('should return 404', (done) => {
+  describe('html', () => {
+    it('should return index.html for "/"', (done) => {
+      chai.request(server)
+        .get('/')
+        .end((err, res) => {
+          should.not.exist(err);
+          res.should.have.status(200);
+          res.should.be.html;
+          done();
+        });
+    });
+    it('should return index.html for "/index.html"', (done) => {
+      chai.request(server)
+        .get('/index.html')
+        .end((err, res) => {
+          should.not.exist(err);
+          res.should.have.status(200);
+          res.should.be.html;
+          done();
+        });
+    });
+  });
+  it('unrecognized endpoint should return 404', (done) => {
     chai.request(server)
-      .get('/')
+      .get('/xxx')
       .end((err, res) => {
         should.not.exist(err);
         res.should.have.status(404);

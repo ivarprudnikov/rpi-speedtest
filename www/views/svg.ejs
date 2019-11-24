@@ -1,0 +1,38 @@
+<%
+    let items = data || [];
+    let itemHeight = 32, pageHeight = itemHeight * items.length, pageWidth = 448, barWidth = 334, barHeight = 2;
+    let fontFamily = "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif";
+    let colPrimary = "#7950F2";
+    let colText = "#212529";
+    let colLight = "#F1F3F5";
+%>
+<svg width="<%=pageWidth%>px" height="<%=pageHeight%>px" viewBox="0 0 <%=pageWidth%> <%=pageHeight%>" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <% for(let i = 0; i < items.length; i++){ %>
+    <% let item = items[i]; %>
+    <g id="Page" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="result">
+            <g id="Group-<%=i%>" transform="translate(17.00, <%=itemHeight * i + 2%>)">
+                <rect id="Rectangle" fill="<%=colLight%>" x="0" y="15" width="<%=barWidth%>" height="<%=barHeight%>" rx="2"></rect>
+                <rect id="Rectangle" fill="<%=colPrimary%>" x="0" y="15" width="<%= item.percent / 100 * barWidth %>" height="<%=barHeight%>" rx="2">
+                    <animate attributeName="width"
+                             begin="0.3s"
+                             dur="300ms"
+                             from="<%= 0.5 * barWidth %>"
+                             to="<%= item.percent / 100 * barWidth %>"
+                             repeatCount="1"
+                             fill="freeze"
+                             calcMode="spline"
+                             keyTimes="0; 1"
+                             keySplines="0.3, 0.61, 0.355, 1" />
+                </rect>
+                <text id="100%" font-family="<%=fontFamily%>" font-size="12" font-weight="normal" letter-spacing="1.857333" fill="<%=colText%>">
+                    <tspan x="344" y="20"><%=item.speed%> mbps</tspan>
+                </text>
+                <text id="Time-1" font-family="<%=fontFamily%>" font-size="10" font-weight="normal" letter-spacing="1" fill="<%=colText%>">
+                    <tspan x="0" y="10"><%=item.time%></tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+    <% } %>
+</svg>

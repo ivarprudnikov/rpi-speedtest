@@ -4,7 +4,6 @@
     "speedPath": "/api/v1/speed",
     "method": "post",
     "maxBytes": 1024,
-    "group": "home",
     "device": "home-networkspeed"
   },
   "dynamo": {
