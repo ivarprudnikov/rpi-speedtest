@@ -1,5 +1,7 @@
 # rpi-speedtest
 
+[![Actions Status](https://github.com/ivarprudnikov/rpi-speedtest/workflows/Node%20CI/badge.svg)](https://github.com/ivarprudnikov/rpi-speedtest/actions)
+
 Network speedtest script to be run on Raspberry Pi
 
 ## On Raspberry
