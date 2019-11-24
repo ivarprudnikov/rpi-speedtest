@@ -109,9 +109,10 @@ describe('Server', () => {
     it('should decline if body too large', (done) => {
       chai.request(server)
         .post(path)
-        .send({ x: '0'.repeat(1024 * 1024) })
-        .end((err, _) => {
-          chai.expect(err.code).to.eq('EPIPE'); // chai error handler is awful
+        .send({ x: '0'.repeat(1025) })
+        .end((err, res) => {
+          should.not.exist(err);
+          res.should.have.status(413);
           done();
         });
     });
