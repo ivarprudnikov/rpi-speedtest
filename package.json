@@ -37,6 +37,7 @@
   },
   "dependencies": {
     "aws-sdk": "^2.555.0",
+    "express": "^4.17.1",
     "raw-body": "^2.4.1"
   },
   "engines": {
