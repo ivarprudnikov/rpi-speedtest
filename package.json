@@ -38,7 +38,7 @@
   },
   "dependencies": {
     "aws-sdk": "^2.663.0",
-    "ejs": "^3.0.2",
+    "ejs": "^3.1.2",
     "express": "^4.17.1",
     "raw-body": "^2.4.1",
     "serve-favicon": "^2.5.0"
