@@ -10,6 +10,8 @@ Network speedtest script to be run on Raspberry Pi
 
 **Assumes you have API server deployed already.**
 
+- Install NodeJS for correct ARM version (`uname -m`)
+  - [Select node version binary hat supports ARM version](https://nodejs.org/en/download/)
 - `$ git clone $url/rpi-speedtest.git`
 - `$ cd rpi-speedtest`
 - `$ npm i`
