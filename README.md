@@ -26,15 +26,15 @@ $ node bin/index.js
 ok 200
 ```
 
-*Setup CRON*
+[*Setup CRON*](https://www.raspberrypi.org/documentation/linux/usage/cron.md)
 
 - Open editor mode `crontab -e`
-- Add something like `15 * * * * node /home/pi/rpi-speedtest/bin/index.js` to run the script every 15th minute
+- Add something like `15 * * * * /usr/local/bin/node /home/pi/rpi-speedtest/bin/index.js` to run the script every 15th minute. Safest way is to puth full path to node installation.
 
 *Caveats*
 
 - I was testing on _Raspbian_ which has cron logs disabled by default, make your call, for me it is not necessary.
-- I did have `node` and `npm` preinstalled on _Raspbian_, make sure you have those available on PATH.
+- I did have `node` and `npm` preinstalled on _Raspbian_, make sure you have those installed and available in `PATH`.
 
 ## API server
 
