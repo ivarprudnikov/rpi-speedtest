@@ -37,7 +37,7 @@
     "speedtest-net": "^1.5.1"
   },
   "dependencies": {
-    "aws-sdk": "^2.663.0",
+    "aws-sdk": "^2.668.0",
     "ejs": "^3.0.2",
     "express": "^4.17.1",
     "raw-body": "^2.4.1",
