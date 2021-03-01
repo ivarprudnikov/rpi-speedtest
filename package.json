@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/ivarprudnikov/rpi-speedtest#readme",
   "devDependencies": {
-    "chai": "^4.2.0",
+    "chai": "^4.3.0",
     "chai-http": "^4.3.0",
     "eslint": "^6.8.0",
     "eslint-config-standard": "^14.1.1",
